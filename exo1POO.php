@@ -2,9 +2,9 @@
 
 class Livre
 {
-    private string $titre;
+    public string $titre;
 
-    private string $auteur;
+    public string $auteur;
 
     // permet d'initialiser les propriétés lors de la création de l'objet
     public function __construct(string $titre, string $auteur)
@@ -35,7 +35,7 @@ class Livre
 
     public function __toString(): string
     {
-        return $this->getTitre() . ' — ' . $this->getAuteur();
+        return $this->titre . ' — ' . $this->auteur;
     }
 }
 
