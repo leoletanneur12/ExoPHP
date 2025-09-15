@@ -2,8 +2,8 @@
 
 abstract class Media
 {
-    protected string $titre;
-    protected Auteur $auteur;
+    private string $titre;
+    private Auteur $auteur;
     private static int $compteur = 0;
 
     public function __construct(string $titre, Auteur $auteur)
@@ -33,6 +33,17 @@ abstract class Media
     public function __toString(): string
     {
         return $this->afficherDetails();
+    }
+
+
+    protected function getTitre(): string
+    {
+        return $this->titre;
+    }
+
+    protected function getAuteur(): Auteur
+    {
+        return $this->auteur;
     }
 }
 
@@ -80,7 +91,7 @@ class Livre extends Media
 
     public function afficherDetails(): string
     {
-        return "Livre : {$this->titre} - Auteur : {$this->auteur} - Année : {$this->anneePublication}";
+    return "Livre : {$this->getTitre()} - Auteur : {$this->getAuteur()} - Année : {$this->anneePublication}";
     }
 }
 
@@ -101,7 +112,7 @@ class Ebook extends Media
 
     public function afficherDetails(): string
     {
-        return "Ebook : {$this->titre} - Auteur : {$this->auteur} - Taille : {$this->tailleFichier} Mo";
+    return "Ebook : {$this->getTitre()} - Auteur : {$this->getAuteur()} - Taille : {$this->tailleFichier} Mo";
     }
 }
 
@@ -122,7 +133,7 @@ class Audiobook extends Media
 
     public function afficherDetails(): string
     {
-        return "Audiobook : {$this->titre} - Auteur : {$this->auteur} - Durée : {$this->duree} min";
+    return "Audiobook : {$this->getTitre()} - Auteur : {$this->getAuteur()} - Durée : {$this->duree} min";
     }
 }
 
